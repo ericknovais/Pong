@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Pong</title>
+    <style>
+        canvas {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            background-color: #000;
+            margin-top: -300px;
+            margin-left: -300px;
+            height: 600px;
+            width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas">
+        O seu browser não suporta este elemento.
+    </canvas>
+
+    <script>
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+
+        var teclas = {};
+
+        var bola = {
+            x: canvas.width / 2 - 15,
+            y: canvas.height / 2 - 15,
+            altura: 30,
+            largura: 30,
+            dirx: -1,
+            diry: 1,
+            mod: 0,
+            speed: 50
+        };
+
+        var esquerda = {
+            x: 10,
+            y: canvas.height / 2 - 60,
+            altura: 120,
+            largura: 30,
+            score: 0,
+            speed: 15
+        };
+
+        var direita = {
+            x: 560,
+            y: canvas.height / 2,
+            altura: 120,
+            largura: 30,
+            score: 0,
+            speed: 15
+        };
+
+        function desenha() {
+            ctx.fillStyle = "rgb(255,255,255)";
+            ctx.fillRect(esquerda.x, esquerda.y, esquerda.largura, esquerda.altura);
+            ctx.fillRect(direita.x, direita.y, direita.largura, direita.altura);
+            ctx.fillRect(bola.x, bola.y, bola.largura, bola.altura);
+        };
+
+        //document.onload = function () {
+        desenha();
+    </script>
+</body>
+</html>
